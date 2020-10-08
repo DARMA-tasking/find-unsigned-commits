@@ -1,0 +1,30 @@
+{
+  "name": "find-unsigned-commits",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "prepare": "ncc build index.js -o dist --license licenses.txt",
+    "all": "npm run lint && npm run prepare"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DARMA-tasking/find-unsigned-commits.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DARMA-tasking/find-unsigned-commits/issues"
+  },
+  "homepage": "https://github.com/DARMA-tasking/find-unsigned-commits#readme",
+  "devDependencies": {
+    "@vercel/ncc": "^0.24.1",
+    "eslint": "^7.9.0"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@octokit/rest": "^18.0.6"
+  }
+}

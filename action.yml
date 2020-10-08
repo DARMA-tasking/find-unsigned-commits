@@ -1,0 +1,22 @@
+name: Check if commits are signed
+author: jstrzebonski
+branding:
+  icon: "search"
+  color: "green"
+description: Check if commits are signed
+inputs:
+  repo_owner:
+    description: "Repository owner name"
+    required: true
+    default: ""
+  repo_name:
+    description: "Repository name"
+    required: true
+    default: ""
+  pr_number:
+    description: "PR number"
+    required: true
+    default: ""
+runs:
+  using: "node12"
+  main: "dist/index.js"
