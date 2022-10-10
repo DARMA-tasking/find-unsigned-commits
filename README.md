@@ -63,7 +63,7 @@ runs:
   main: "dist/index.js" # <== entry point
 ```
 
-To do everything at once (lint and prepare) do
+## To do everything at once (lint and prepare) do
 
 ```bash
 $ npm run all
