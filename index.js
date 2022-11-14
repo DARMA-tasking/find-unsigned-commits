@@ -23,9 +23,9 @@ async function check() {
           core.info("  - OK");
           return;
         } else {
-          let failMsg = "Unsigned commits:";
+          let failMsg = "Found unsigned commits:";
           notVerifiedCommits.forEach((commit) => {
-            failMsg += `${commit.sha}\n`;
+            failMsg += `\n${commit.sha}`;
           });
 
           core.setFailed(failMsg);
