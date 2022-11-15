@@ -9437,13 +9437,22 @@ async function check() {
       })
       .then((result) => {
         core.info("Checking if all commits are signed");
-        const isVerified = (data) => data.commit.verification.verified === true;
-        if (result.data.every(isVerified) === true) {
-          core.info("  - OK");
+
+        const isNotVerified = (data) =>
+          data.commit.verification.verified === false;
+        const notVerifiedCommits = result.data.filter(isNotVerified);
+        if (notVerifiedCommits.length > 0) {
+          let failMsg = "Found unsigned commits:";
+          notVerifiedCommits.forEach((commit) => {
+            failMsg += `\n${commit.sha.substring(0, 7)}`;
+          });
+
+          core.setFailed(failMsg);
           return;
         }
 
-        core.setFailed("Not all commits are signed");
+        core.info("  - OK");
+        return;
       })
       .catch((error) =>
         core.setFailed(`Error when fetching PR's commits:\n${error}`)
